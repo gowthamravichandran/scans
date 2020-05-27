@@ -49,18 +49,14 @@ module.exports = {
                     }
                 });
             });
-
-            if (unencryptedAmis.length > 20) {
-                helpers.addResult(results, 2,
-                    'More than 20 unencrypted AMI EBS volumes found', region);
-            } else if (unencryptedAmis.length) {
+           if (unencryptedAmis.length) {
                 unencryptedAmis.forEach(function(ami){
                     helpers.addResult(results, 2,
-                        'AMI EBS volume is unencrypted', region, ami);
+                        'AMI EBS snapshot is unencrypted', region, ami);
                 });
             } else {
                 helpers.addResult(results, 0,
-                    'No AMIs with unencrypted volumes found', region);
+                    'No AMIs with unencrypted snapshots found', region);
             }
 
             rcb();
