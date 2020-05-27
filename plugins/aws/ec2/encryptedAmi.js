@@ -49,11 +49,7 @@ module.exports = {
                     }
                 });
             });
-
-            if (unencryptedAmis.length > 20) {
-                helpers.addResult(results, 2,
-                    'More than 20 unencrypted AMI EBS snapshots found', region);
-            } else if (unencryptedAmis.length) {
+           if (unencryptedAmis.length) {
                 unencryptedAmis.forEach(function(ami){
                     helpers.addResult(results, 2,
                         'AMI EBS snapshot is unencrypted', region, ami);
